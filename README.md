@@ -39,14 +39,15 @@
 
 ## Addresses テーブル
 
-| Column         | Type       | Options                        |
-| -------------- | ---------- | -------------------------------|
-| postal_code    | string     | null: false                    |
-| city           | string     | null: false                    |
-| address_detail | string     | null: false                    |
-| building       | string     |                                |
-| phone_number   | string     | null: false                    |
-| purchased_item | references | null: false, foreign_key: true |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | -------------------------------|
+| postal_code      | string     | null: false                    |
+| shipping_area_id | integer    | null: false                    |
+| city             | string     | null: false                    |
+| address_detail   | string     | null: false                    |
+| building         | string     |                                |
+| phone_number     | string     | null: false                    |
+| purchased_item   | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -55,7 +56,7 @@
 ## Purchased_items テーブル
 
 | Column | Type       | Options                        |
-| ------# | ---------- | -------------------------------|
+| ------ | ---------- | -------------------------------|
 | user   | references | null: false, foreign_key: true |
 | item   | references | null: false, foreign_key: true |
 
