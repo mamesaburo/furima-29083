@@ -96,18 +96,6 @@
 
 - belongs_to :user
 
-## Credit_cards テーブル
-
-| Column      | Type       | Options                        |
-| ----------- | ---------- | -------------------------------|
-| user_id     | references | null: false, foreign_key: true |
-| customer_id | string     | null: false                    |
-| card_id     | string     | null: false                    |
-
-### Association
-
-- belongs_to :user
-
 ## Purchased_items テーブル
 
 | Column    | Type       | Options                                        |
