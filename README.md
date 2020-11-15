@@ -16,7 +16,6 @@
 ### Association
 
 - has_many :items, dependent: :destroy
-- has_one :address, dependent: :destroy
 - has_one :purchased_items, dependent: :destroy
 
 ## Items テーブル
@@ -52,23 +51,23 @@
 
 ## Addresses テーブル
 
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | -------------------------------|
-| family_name      | string     | null: false                    |
-| first_name       | string     | null: false                    |
-| family_name_kana | string     | null: false                    |
-| first_name_kana  | string     | null: false                    |
-| postal_code      | integer    | null: false                    |
-| prefectures      | string     | null: false                    |
-| city             | integer    | null: false                    |
-| address_detail   | string     | null: false                    |
-| building         | string     |                                |
-| phone_number     | string     | null: false                    |
-| user_id          | references | null: false, foreign_key: true |
+| Column            | Type       | Options                        |
+| ----------------- | ---------- | -------------------------------|
+| family_name       | string     | null: false                    |
+| first_name        | string     | null: false                    |
+| family_name_kana  | string     | null: false                    |
+| first_name_kana   | string     | null: false                    |
+| postal_code       | integer    | null: false                    |
+| prefectures       | string     | null: false                    |
+| city              | integer    | null: false                    |
+| address_detail    | string     | null: false                    |
+| building          | string     |                                |
+| phone_number      | string     | null: false                    |
+| purchased_item_id | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :user
+- belongs_to :purchased_item
 
 ## Purchased_items テーブル
 
@@ -81,3 +80,4 @@
 
 - belongs_to :user
 - belongs_to :item
+- has_one :Purchased_item
