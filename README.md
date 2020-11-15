@@ -28,11 +28,11 @@
 | name             | string     | null: false                    |
 | description_item | text       | null: false                    |
 | price            | integer    | null: false                    |
-| condition        | string     | null: false                    |
+| condition        | integer    | null: false                    |
 | shipping_cost    | integer    | null: false                    |
-| shipping_area    | string     | null: false                    |
+| shipping_area    | integer    | null: false                    |
 | shipping_days    | integer    | null: false                    |
-| category_id      | references | null: false, foreign_key: true |
+| category         | integer    | null: false                    |
 | brand_id         | references | null: false, foreign_key: true |
 | user_id          | references | null: false, foreign_key: true |
 
