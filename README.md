@@ -18,8 +18,7 @@
 - has_many :items, dependent: :destroy
 - has_one :address, dependent: :destroy
 - has_one :credit_card, dependent: :destroy
-- has_many :buyer_purchased_items, dependent: :destroy, class_name: "Purchased_item", foreign_key: "buyer_id"
-- has_many :seller_purchased_items, dependent: :destroy, class_name: "Purchased_item", foreign_key: "seller_id"
+- has_one :purchased_items, dependent: :destroy
 
 ## Items テーブル
 
@@ -98,14 +97,12 @@
 
 ## Purchased_items テーブル
 
-| Column    | Type       | Options                                        |
-| --------- | ---------- | -----------------------------------------------|
-| item_id   | references | null: false, foreign_key: true                 |
-| buyer_id  | references | foreign_key: { to_table: :users }, null: false |
-| seller_id | references | foreign_key: { to_table: :users }, null: false |
+| Column  | Type       | Options                        |
+| ------- | ---------- | -------------------------------|
+| user_id | references | null: false, foreign_key: true |
+| item_id | references | null: false, foreign_key: true |
 
 ### Association
 
+- belongs_to :user
 - belongs_to :item
-- belongs_to :buyer, class_name: "User", foreign_key: "buyer_id"
-- belongs_to :seller, class_name: "User", foreign_key: "seller_id"
