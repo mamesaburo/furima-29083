@@ -56,7 +56,7 @@
 ## Purchased_items テーブル
 
 | Column | Type       | Options                        |
-| ------ | ---------- | -------------------------------|
+| ------# | ---------- | -------------------------------|
 | user   | references | null: false, foreign_key: true |
 | item   | references | null: false, foreign_key: true |
 
@@ -64,4 +64,4 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one :Purchased_item
+- has_one :purchased_item
