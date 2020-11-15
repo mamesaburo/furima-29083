@@ -32,14 +32,12 @@
 | shipping_area    | integer    | null: false                    |
 | shipping_days    | integer    | null: false                    |
 | category         | integer    | null: false                    |
-| brand_id         | references | null: false, foreign_key: true |
 | user_id          | references | null: false, foreign_key: true |
 
 ### Association
 
 - has_many :item_images, dependent: :destroy
 - belongs_to :category
-- belongs_to :brand
 - belongs_to :user
 - has_one :purchased_item
 
@@ -60,16 +58,6 @@
 | -------- | ------ | ------------|
 | name     | string | null: false |
 | ancestry | string |             |
-
-### Association
-
-- has_many :items
-
-## Brands テーブル
-
-| Column   | Type   | Options     |
-| -------- | ------ | ------------|
-| name     | string | null: false |
 
 ### Association
 
