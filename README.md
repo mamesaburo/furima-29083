@@ -17,7 +17,6 @@
 
 - has_many :items, dependent: :destroy
 - has_one :address, dependent: :destroy
-- has_one :credit_card, dependent: :destroy
 - has_one :purchased_items, dependent: :destroy
 
 ## Items テーブル
@@ -37,7 +36,6 @@
 ### Association
 
 - has_many :item_images, dependent: :destroy
-- belongs_to :category
 - belongs_to :user
 - has_one :purchased_item
 
@@ -51,17 +49,6 @@
 ### Association
 
 - belongs_to :item
-
-# Categories テーブル
-
-| Column   | Type   | Options     |
-| -------- | ------ | ------------|
-| name     | string | null: false |
-| ancestry | string |             |
-
-### Association
-
-- has_many :items
 
 ## Addresses テーブル
 
