@@ -41,10 +41,6 @@
 
 | Column            | Type       | Options                        |
 | ----------------- | ---------- | -------------------------------|
-| family_name       | string     | null: false                    |
-| first_name        | string     | null: false                    |
-| family_name_kana  | string     | null: false                    |
-| first_name_kana   | string     | null: false                    |
 | postal_code       | integer    | null: false                    |
 | prefectures       | string     | null: false                    |
 | city              | integer    | null: false                    |
