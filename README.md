@@ -34,20 +34,8 @@
 
 ### Association
 
-- has_many :item_images, dependent: :destroy
 - belongs_to :user
 - has_one :purchased_item
-
-## Item_images テーブル
-
-| Column  | Type       | Options                        |
-| ------- | ---------- | -------------------------------|
-| image   | string     | null: false                    |
-| item_id | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :item
 
 ## Addresses テーブル
 
