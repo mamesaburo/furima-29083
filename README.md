@@ -42,7 +42,7 @@
 | Column            | Type       | Options                        |
 | ----------------- | ---------- | -------------------------------|
 | postal_code       | string     | null: false                    |
-| prefectures       | string     | null: false                    |
+| prefectures_id    | integer    | null: false                    |
 | city              | integer    | null: false                    |
 | address_detail    | string     | null: false                    |
 | building          | string     |                                |
