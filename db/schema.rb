@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2020_11_25_120212) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_items_on_user_id"
   end
+ActiveRecord::Schema.define(version: 2020_11_21_042659) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
