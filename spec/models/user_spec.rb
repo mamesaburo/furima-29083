@@ -11,7 +11,7 @@ RSpec.describe User, type: :model do
         expect(@user).to be_valid
       end
       it "passwordが数字と英字を含む6文字の場合、登録できる" do
-        @user.nickname = "1a2b3c"
+        @user.password = "1a2b3c"
         @user.password_confirmation = "1a2b3c"
         expect(@user).to be_valid
       end
