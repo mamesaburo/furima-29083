@@ -12,11 +12,11 @@ class Item < ApplicationRecord
     validates :image
     validates :name, length: { maximum: 40 }
     validates :description, length: { maximum: 1000 }
-    validates :category_id, numericality: { other_than: 0 }, presence: { message: "Select"}
-    validates :condition_id, numericality: { other_than: 0 }, presence: { message: "Select"}
-    validates :shipping_cost_id, numericality: { other_than: 0 }, presence: { message: "Select"}
-    validates :shipping_area_id, numericality: { other_than: 0 }, presence: { message: "Select"}
-    validates :shipping_days_id, numericality: { other_than: 0 }, presence: { message: "Select"}
+    validates :category_id, numericality: { other_than: 0, message: "Select" }
+    validates :condition_id, numericality: { other_than: 0, message: "Select" }
+    validates :shipping_cost_id, numericality: { other_than: 0, message: "Select" }
+    validates :shipping_area_id, numericality: { other_than: 0, message: "Select" }
+    validates :shipping_days_id, numericality: { other_than: 0, message: "Select" }
     validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }, format: { with: /\A[0-9]+\z/ }
   end
 end
