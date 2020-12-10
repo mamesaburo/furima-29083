@@ -6,7 +6,7 @@ FactoryBot.define do
     condition_id {"1"}
     shipping_cost_id {"1"}
     shipping_area_id {"1"}
-    shipping_days_id {"1"}
+    shipping_day_id {"1"}
     price {"10000"}
     user
 

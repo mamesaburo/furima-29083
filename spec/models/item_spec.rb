@@ -7,7 +7,7 @@ RSpec.describe Item, type: :model do
 
   describe '新規商品出品登録' do
     context '新規商品出品がうまくいくとき' do
-      it "nameとdescription、category_idとcondition_id、shipping_cost_idとshipping_area_id、shipping_days_idとprice、imageが存在すれば登録できる" do
+      it "nameとdescription、category_idとcondition_id、shipping_cost_idとshipping_area_id、shipping_day_idとprice、imageが存在すれば登録できる" do
         expect(@item).to be_valid
       end
       it "nameが40文字以内の場合、登録できる" do
@@ -69,8 +69,8 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping area Select")
       end
-      it "shipping_days_idを選択しなければ登録できない" do
-        @item.shipping_days_id = ""
+      it "shipping_day_idを選択しなければ登録できない" do
+        @item.shipping_day_id = ""
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping days Select")
       end
