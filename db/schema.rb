@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_25_120212) do
+ActiveRecord::Schema.define(version: 2020_12_12_064932) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -40,14 +40,22 @@ ActiveRecord::Schema.define(version: 2020_11_25_120212) do
     t.integer "condition_id", null: false
     t.integer "shipping_cost_id", null: false
     t.integer "shipping_area_id", null: false
-    t.integer "shipping_days_id", null: false
+    t.integer "shipping_day_id", null: false
     t.integer "category_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_items_on_user_id"
   end
-ActiveRecord::Schema.define(version: 2020_11_21_042659) do
+
+  create_table "purchased_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_purchased_items_on_item_id"
+    t.index ["user_id"], name: "index_purchased_items_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
@@ -69,5 +77,6 @@ ActiveRecord::Schema.define(version: 2020_11_21_042659) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "items", "users"
-end
+  add_foreign_key "purchased_items", "items"
+  add_foreign_key "purchased_items", "users"
 end
