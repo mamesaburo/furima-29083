@@ -5,8 +5,9 @@ class PurchasedItemsController < ApplicationController
   end
 
   def create
-    @address = Address.new(address_params)
-    if @address.save
+    @purchased_item_address = PurchasedItemAddress.new(address_params)
+    if @purchased_item_address.valid?
+      @purchased_item_address.save
       redirect_to root_path
     else
       render :index
@@ -16,7 +17,6 @@ class PurchasedItemsController < ApplicationController
   private
 
   def address_params
-    params.require(:address).permit(:postal_code, :shipping_area_id, :city, :address_detail, :building, :phone_number, :purchased_item_id)
+    params.require(:purchased_item_address).permit(:postal_code, :shipping_area_id, :city, :address_detail, :building, :phone_number).merge(user_id: current_user.id, item_id: item_id)
   end
-  
 end
