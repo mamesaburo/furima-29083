@@ -1,4 +1,5 @@
 class PurchasedItemsController < ApplicationController
+  before_action :move_to_index, only: [:index]
 
   def index
     @item = Item.find(params[:item_id])
@@ -21,6 +22,12 @@ class PurchasedItemsController < ApplicationController
 
   def address_params
     params.require(:purchased_item_address).permit(:postal_code, :shipping_area_id, :city, :address_detail, :building, :phone_number, :item_id).merge(user_id: current_user.id, token: params[:token])
+  end
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
   end
 
   def pay_item
