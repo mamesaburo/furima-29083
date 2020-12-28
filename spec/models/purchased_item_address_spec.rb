@@ -35,6 +35,11 @@ RSpec.describe PurchasedItemAddress, type: :model do
         @purchased_item_address.valid?
         expect(@purchased_item_address.errors.full_messages).to include("Postal code Input correctly")
       end
+      it "postal_codeが全角数字の場合、登録できない" do
+        @purchased_item_address.postal_code = "１２３ー４５"
+        @purchased_item_address.valid?
+        expect(@purchased_item_address.errors.full_messages).to include("Postal code Input correctly")
+      end
       it "shipping_area_idを選択しなければ登録できない" do
         @purchased_item_address.shipping_area_id = ""
         @purchased_item_address.valid?
