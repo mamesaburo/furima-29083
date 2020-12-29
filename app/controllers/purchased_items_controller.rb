@@ -1,7 +1,7 @@
 class PurchasedItemsController < ApplicationController
   before_action :move_to_index, only: [:index]
   before_action :sold_out_item, only: [:index]
-  
+
   def index
     @item = Item.find(params[:item_id])
     @purchased_item_address = PurchasedItemAddress.new
@@ -25,7 +25,7 @@ class PurchasedItemsController < ApplicationController
   private
 
   def address_params
-    params.require(:purchased_item_address).permit(:postal_code, :shipping_area_id, :city, :address_detail, :building, :phone_number, :item_id).merge(user_id: current_user.id, token: params[:token])
+    params.require(:purchased_item_address).permit(:postal_code, :shipping_area_id, :city, :address_detail, :building, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
   end
 
   def move_to_index
