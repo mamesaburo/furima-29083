@@ -23,7 +23,7 @@ RSpec.describe PurchasedItemAddress, type: :model do
         expect(@purchased_item_address.errors.full_messages).to include("Postal code can't be blank")
       end
       it "postal_codeが半角のハイフンを含んだ正しい形式でない場合、登録できない" do
-        @purchased_item_address.postal_code = "1234567"
+        @purchased_item_address.postal_code = 1234567
         @purchased_item_address.valid?
         expect(@purchased_item_address.errors.full_messages).to include("Postal code Input correctly")
       end
@@ -34,6 +34,11 @@ RSpec.describe PurchasedItemAddress, type: :model do
       end
       it "shipping_area_idを選択しなければ登録できない" do
         @purchased_item_address.shipping_area_id = ""
+        @purchased_item_address.valid?
+        expect(@purchased_item_address.errors.full_messages).to include("Shipping area Select")
+      end
+      it "shipping_area_idで0を選択した場合、登録できない" do
+        @purchased_item_address.shipping_area_id = 0
         @purchased_item_address.valid?
         expect(@purchased_item_address.errors.full_messages).to include("Shipping area Select")
       end
@@ -53,7 +58,7 @@ RSpec.describe PurchasedItemAddress, type: :model do
         expect(@purchased_item_address.errors.full_messages).to include("Phone number can't be blank")
       end
       it "phone_numberにハイフンがある場合、登録できない" do
-        @purchased_item_address.phone_number = "12345-6789"
+        @purchased_item_address.phone_number = 12345-6789
         @purchased_item_address.valid?
         expect(@purchased_item_address.errors.full_messages).to include("Phone number Input only number")
       end

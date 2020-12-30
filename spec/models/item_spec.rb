@@ -54,8 +54,18 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Category Select")
       end
+      it "category_idで0を選択した場合、登録できない" do
+        @item.category_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category Select")
+      end
       it "condition_idを選択しなければ登録できない" do
         @item.condition_id = ""
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Condition Select")
+      end
+      it "condition_idで0を選択した場合、登録できない" do
+        @item.condition_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition Select")
       end
@@ -64,15 +74,30 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping cost Select")
       end
+      it "shipping_cost_idで0を選択した場合、登録できない" do
+        @item.shipping_cost_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping cost Select")
+      end
       it "shipping_area_idを選択しなければ登録できない" do
         @item.shipping_area_id = ""
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping area Select")
+      end
+      it "shipping_area_idで0を選択した場合、登録できない" do
+        @item.shipping_area_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping area Select")
       end
       it "shipping_day_idを選択しなければ登録できない" do
         @item.shipping_day_id = ""
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping days Select")
+        expect(@item.errors.full_messages).to include("Shipping day Select")
+      end
+      it "shipping_day_idで0を選択した場合、登録できない" do
+        @item.shipping_day_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping day Select")
       end
       it "priceが空では登録できない" do
         @item.price = ""
