@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :condition
   belongs_to_active_hash :shipping_area
   belongs_to :user
-  has_one :purchased_item
+  has_one :purchased_item, dependent: :destroy
 
   with_options presence: true do
     validates :image

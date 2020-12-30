@@ -15,7 +15,7 @@
 
 ### Association
 
-- has_many :items, dependent: :destroy
+- has_many :items
 - has_many :purchased_items
 
 ## Items テーブル
@@ -35,7 +35,7 @@
 ### Association
 
 - belongs_to :user
-- has_one :purchased_item
+- has_one :purchased_item, dependent: :destroy
 
 ## Addresses テーブル
 
@@ -64,4 +64,4 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one :address
+- has_one :address, dependent: :destroy
