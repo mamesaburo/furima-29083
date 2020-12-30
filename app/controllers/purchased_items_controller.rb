@@ -1,5 +1,5 @@
 class PurchasedItemsController < ApplicationController
-  before_action :move_to_index, only: [:index]
+  before_action :move_to_index, only: [:index, :create]
   before_action :sold_out_item, only: [:index]
   before_action :set_item, only: [:index, :create]
 
