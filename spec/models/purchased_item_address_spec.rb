@@ -2,9 +2,12 @@ require 'rails_helper'
 
 RSpec.describe PurchasedItemAddress, type: :model do
   before do
-    @purchased_item_address = FactoryBot.build(:purchased_item_address)
+    @user = FactoryBot.create(:user)
+    @item = FactoryBot.create(:item)
+    @purchased_item_address = FactoryBot.build(:purchased_item_address, user_id: @user.id, item_id: @item.id)
+    sleep 0.1
   end
-
+  
   describe '商品購入' do
     context '商品購入がうまくいくとき' do
       it "postal_codeとshipping_area_id、cityとaddress_detail、phone_numberとtokenが存在すれば登録できる" do
