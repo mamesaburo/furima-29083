@@ -1,9 +1,9 @@
 class PurchasedItemsController < ApplicationController
   before_action :move_to_index, only: [:index]
   before_action :sold_out_item, only: [:index]
+  before_action :set_item, only: [:index, :create]
 
   def index
-    @item = Item.find(params[:item_id])
     @purchased_item_address = PurchasedItemAddress.new
     if current_user.id == @item.user_id
       redirect_to root_path
@@ -11,7 +11,6 @@ class PurchasedItemsController < ApplicationController
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @purchased_item_address = PurchasedItemAddress.new(address_params)
     if @purchased_item_address.valid?
       pay_item
@@ -35,10 +34,14 @@ class PurchasedItemsController < ApplicationController
   end
 
   def sold_out_item
-    @item = Item.find(params[:item_id])
+    set_item
     if @item.purchased_item.present?
       redirect_to root_path
     end
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
   end
 
   def pay_item
