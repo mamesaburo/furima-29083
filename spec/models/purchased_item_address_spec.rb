@@ -10,16 +10,8 @@ RSpec.describe PurchasedItemAddress, type: :model do
       it "postal_codeとshipping_area_id、cityとaddress_detail、phone_numberとtokenが存在すれば登録できる" do
         expect(@purchased_item_address).to be_valid
       end
-      it "postal_codeが半角のハイフンを含んだ正しい形式である場合、登録できる" do
-        @purchased_item_address.postal_code = "123-4567"
-        expect(@purchased_item_address).to be_valid
-      end
       it "buildingは空でも登録できる" do
         @purchased_item_address.building = ""
-        expect(@purchased_item_address).to be_valid
-      end
-      it "phone_numberが半角のハイフンを含まない正しい形式である場合、登録できる" do
-        @purchased_item_address.phone_number = "09012345678" 
         expect(@purchased_item_address).to be_valid
       end
     end
