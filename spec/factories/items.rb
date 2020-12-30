@@ -2,12 +2,12 @@ FactoryBot.define do
   factory :item do
     name {"ワンピース"}
     description {"今季の商品です"}
-    category_id {"1"}
-    condition_id {"1"}
-    shipping_cost_id {"1"}
-    shipping_area_id {"1"}
-    shipping_day_id {"1"}
-    price {"10000"}
+    category_id {1}
+    condition_id {1}
+    shipping_cost_id {1}
+    shipping_area_id {1}
+    shipping_day_id {1}
+    price {10000}
     user
 
     after(:build) do |item|
